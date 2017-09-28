@@ -103,21 +103,14 @@ function loadLikes(likes){
 }
 
 var profile;
-	swal(
-		{
-			title:"helloWorld!!!",
-			text:"Hello visitor, you have landed upon little webspace of moghya.",
-			confirmButtonColor:"#1f1f1f"
-		}
-	);
 $.get("js/profile.json", 
 	function(data, status){
 		profile = data;
 		var pInfo = profile.personalInfo;
-		$('title').html(pInfo.nick+'|Portfolio');
-		$('#name').html(pInfo.fname+' '+pInfo.lname+'<sub>&lt'+pInfo.nick+'/&gt</sub>');
+		$('title').html(pInfo.fname + ' ' + pInfo.lname);
+		$('#name').html(pInfo.fname+' '+pInfo.lname);
 		$('#image img').attr('src','img/'+pInfo.myimg);
-		$('#contact').html('Call me:'+pInfo.mob+'</br> Mail me:'+pInfo.email);
+		$('#contact').html('Call me:'+pInfo.mob+'</br> Mail me: '+pInfo.email);
 		$('#summary p').html(profile.summary);
 		Typed.new('#believe span', {
 			strings: profile.qoutes,
